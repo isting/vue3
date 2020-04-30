@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, getCurrentInstance } from "vue";
+import { ref, reactive, computed, getCurrentInstance, toRefs } from "vue";
 
 export default {
   setup() {
@@ -98,14 +98,15 @@ export default {
     let newTodo = ref("");
 
     const addTodo = () => {
-      ctx.filteredTodos.unshift({
-        id: Math.random()
-          .toString()
-          .slice(10),
-        title: newTodo.value.trim(),
-        completed: false
-      });
-      newTodo.value = "";
+      console.log(toRefs);
+      // ctx.filteredTodos.unshift({
+      //   id: Math.random()
+      //     .toString()
+      //     .slice(10),
+      //   title: newTodo.value.trim(),
+      //   completed: false
+      // });
+      // newTodo.value = "";
     };
 
     const switchStatus = status => {
